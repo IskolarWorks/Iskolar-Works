@@ -3,10 +3,10 @@ $isAdmin = false;
 
 $navItems = [
   ['label' => 'Home', 'href' => 'index.php', 'active' => true],
-  ['label' => 'About', 'href' => '../About/about.php'],
-  ['label' => 'News', 'href' => '../News/news.php'],
-  ['label' => 'Scholarships', 'href' => '../Scholarships/scholarships.php'],
-  ['label' => 'FAQs', 'href' => '../Faqs/faqs.php']
+  ['label' => 'About', 'href' => '../about.php'],
+  ['label' => 'News', 'href' => '../news.php'],
+  ['label' => 'Scholarships', 'href' => '../scholarships.php'],
+  ['label' => 'FAQs', 'href' => '../faqs.php']
 ];
 
 $headerTitle = "YOUR GATEWAY TO A BRIGHTER FUTURE";
