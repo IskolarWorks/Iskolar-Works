@@ -74,16 +74,16 @@
             <a href="../Homepage/index.php" class="nav-link nav-link-custom text-uppercase mx-2">Home</a>
           </li>
           <li class="nav-item">
-            <a href="../About/about.php" class="nav-link nav-link-custom text-uppercase active mx-2">About</a>
+            <a href="../Homepage/about.php" class="nav-link nav-link-custom text-uppercase active mx-2">About</a>
           </li>
           <li class="nav-item">
-            <a href="../News/news.php" class="nav-link nav-link-custom text-uppercase mx-2">News</a>
+            <a href="../Homepage/news.php" class="nav-link nav-link-custom text-uppercase mx-2">News</a>
           </li>
           <li class="nav-item">
-            <a href="../Scholarships/scholarships.php" class="nav-link nav-link-custom text-uppercase mx-2">Scholarships</a>
+            <a href="../Homepage/scholarships.php" class="nav-link nav-link-custom text-uppercase mx-2">Scholarships</a>
           </li>
           <li class="nav-item">
-            <a href="../Faqs/faqs.php" class="nav-link nav-link-custom text-uppercase mx-2">FAQs</a>
+            <a href="../Homepage/faqs.php" class="nav-link nav-link-custom text-uppercase mx-2">FAQs</a>
           </li>
           <li class="nav-item">
             <a class="nav-link admin-icon-circle" href="../Admin/login.php" title="Admin Login">

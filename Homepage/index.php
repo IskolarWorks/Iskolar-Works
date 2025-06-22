@@ -2,11 +2,11 @@
 $isAdmin = false;
 
 $navItems = [
-  ['label' => 'Home', 'href' => 'index.php', 'active' => true],
-  ['label' => 'About', 'href' => '../about.php'],
-  ['label' => 'News', 'href' => '../news.php'],
-  ['label' => 'Scholarships', 'href' => '../scholarships.php'],
-  ['label' => 'FAQs', 'href' => '../faqs.php']
+  ['label' => 'Home', 'href' => '/Homepage/index.php', 'active' => true],
+  ['label' => 'About', 'href' => '../Homepage/about.php'],
+  ['label' => 'News', 'href' => '../Homepage/news.php'],
+  ['label' => 'Scholarships', 'href' => '../Homepage/scholarships.php'],
+  ['label' => 'FAQs', 'href' => '../Homepage/faqs.php']
 ];
 
 $headerTitle = "YOUR GATEWAY TO A BRIGHTER FUTURE";

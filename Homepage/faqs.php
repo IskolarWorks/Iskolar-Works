@@ -2,11 +2,11 @@
 $isAdmin = false;
 
 $navItems = [
-    ['label' => 'Home', 'href' => '../index.php'],
-    ['label' => 'About', 'href' => '../about.php'],
-    ['label' => 'News', 'href' => '../news.php'],
-    ['label' => 'Scholarships', 'href' => '../scholarships.php'],
-    ['label' => 'FAQs', 'href' => '../faqs.php', 'active' => true]
+    ['label' => 'Home', 'href' => '../Homepage/index.php'],
+    ['label' => 'About', 'href' => '../Homepage/about.php'],
+    ['label' => 'News', 'href' => '../Homepage/news.php'],
+    ['label' => 'Scholarships', 'href' => '../Homepage/scholarships.php'],
+    ['label' => 'FAQs', 'href' => '../Homepage/faqs.php', 'active' => true]
 ];
 
 $faqList = [

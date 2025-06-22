@@ -3,10 +3,10 @@ $isAdmin = false;
 
 $navItems = [
   ['label' => 'Home', 'href' => '../Homepage/index.php'],
-  ['label' => 'About', 'href' => '../about.php'],
-  ['label' => 'News', 'href' => '../new.php', 'active' => true],
-  ['label' => 'Scholarships', 'href' => '../scholarships.php'],
-  ['label' => 'FAQs', 'href' => '../faqs.php']
+  ['label' => 'About', 'href' => '../Homepage/about.php'],
+  ['label' => 'News', 'href' => '../Homepage/new.php', 'active' => true],
+  ['label' => 'Scholarships', 'href' => '../Homepage/scholarships.php'],
+  ['label' => 'FAQs', 'href' => '../Homepage/faqs.php']
 ];
 
 $newsList = [
