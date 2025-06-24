@@ -44,10 +44,13 @@ $newsList = [
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+  <link href="https://api.fontshare.com/v2/css?f[]=satoshi@400,500,700&display=swap" rel="stylesheet"> 
+
   <style>
     body {
       background-color: #ECECEC;
-      font-family: 'Montserrat', sans-serif;
+      font-family: 'Satoshi', sans-serif;
+      scroll-behavior: smooth;
     }
 
     .bg-maroon {
@@ -176,7 +179,7 @@ $newsList = [
       <div class="col-12 py-5">
         <div id="news">
           <div class="d-flex justify-content-between align-items-center mb-4">
-            <h2 class="fw-bold" style="font-size: 2.5rem;">LATEST NEWS</h2>
+            <h2 class="fw-bold" style="font-size: 2.5rem;">Latest News</h2>
             <a href="../News/news.php" class="btn px-4 py-2 text-white" style="background-color: #851d1d; border-radius: 10px;">SEE MORE</a>
           </div>
           <div class="row row-cols-1 row-cols-md-3 g-4">
@@ -198,7 +201,7 @@ $newsList = [
       <div class="col-12 py-5">
         <div id="scholarship">
           <div class="d-flex justify-content-between align-items-center mb-4">
-            <h2 class="fw-bold" style="font-size: 2.5rem;">FEATURED SCHOLARSHIPS</h2>
+            <h2 class="fw-bold" style="font-size: 2.5rem;">Featured Scholarships</h2>
             <a href="<?= $navItems[3]['href'] ?>" class="btn px-4 py-2 text-white" style="background-color: #851d1d; border-radius: 10px;">SEE MORE</a>
           </div>
           <div class="row">

@@ -40,10 +40,13 @@ $scholarshipList = [
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+  <link href="https://api.fontshare.com/v2/css?f[]=satoshi@400,500,700&display=swap" rel="stylesheet"> 
+
   <style>
     body {
       background-color: #ECECEC;
-      font-family: 'Montserrat', sans-serif;
+      font-family: 'Satoshi', sans-serif;
+      scroll-behavior: smooth;
     }
 
     .bg-maroon {
