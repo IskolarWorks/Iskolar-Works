@@ -12,35 +12,62 @@ $navItems = [
 $scholarshipList = [
   [
     'scholarshipTitle' => 'Sto. Tomas Academic Scholars Grant',
-    'deadline' => 'August 20, 2025',
+    'deadline' => 'March 14, 2025',
     'benefit' => '₱5,000 per semester',
-    'imageSrc' => '../assets/scholar.jpg'
+    'imagePath' => 'image/sto tomas.jpg',
+    'link' => 'https://www.facebook.com/share/p/1ANSfqu8yf/'
   ],
   [
-    'scholarshipTitle' => 'Youth Empowerment Educational Assistance',
-    'deadline' => 'September 15, 2025',
-    'benefit' => 'Full Tuition + Monthly Stipend',
-    'imageSrc' => '../assets/scholar.jpg'
+    'scholarshipTitle' => 'City Youth Development and Sports Division - Sto. Tomas, Batangas',
+    'deadline' => 'March 20, 2025',
+    'benefit' => 'Financial Grant, School Supplies, and Sports/Educational Programs',
+    'imagePath' => 'image/cydsd.jpg',
+    'link' => 'https://www.facebook.com/permalink.php?story_fbid=pfbid02WvH4ewxW1i3diF8C4gVXV4FeFXPxrwSU3LWof755XBq1uLBvAtjqhB9jxgiytrbil&id=100091832305659'
   ],
   [
     'scholarshipTitle' => 'Solo Parent & PWD Child Support Grant',
-    'deadline' => 'October 1, 2025',
-    'benefit' => '₱3,500 monthly + Learning Materials',
-    'imageSrc' => '../assets/scholar.jpg'
+    'deadline' => 'August 20, 2025',
+    'benefit' => 'Monthly Cash Subsidy and Automatic Philhealth Coverage',
+    'imagePath' => 'image/dswd.jpg',
+    'link' => 'https://www.facebook.com/dswdserves?rdid=1cIHS5XRsBqsc2ua&share_url=https%3A%2F%2Fwww.facebook.com%2Fshare%2F1RKPbzti7N%2F%3Ffrom_xma_click%3Dxma_web_url%26xma_click_id%3DAC0C26C8-04B0-4432-8373-8584DDA82E47%26tam_xma_content_type%3D0%26is_fb_content%3Dtrue%26forward%3Dfalse%26ts%3D1750777899375%26pl%3D1#'
+  ],
+  [
+    'scholarshipTitle' => 'Sta Anastacia, Sto Tomas Scholarship',
+    'deadline' => 'May 18, 2025',
+    'benefit' => '₱10,000 per semester',
+    'imagePath' => 'image/sta anastacia.jpg',
+    'link' => 'https://www.facebook.com/sangguniangkabataanbiga2018'
+  ],
+  [
+    'scholarshipTitle' => 'Anakalusugan',
+    'deadline' => 'March 20, 2025',
+    'benefit' => 'AnaKalusugan Assistance (AICS Payout Program)',
+    'imagePath' => 'image/anakalusugan.png',
+    'link' => 'https://www.facebook.com/anakalusugan1'
+  ],
+  [
+    'scholarshipTitle' => 'Maibarara Geothermal Inc.',
+    'deadline' => 'November 1, 2025',
+    'benefit' => '₱5,000 monthly + learning materials',
+    'imagePath' => 'image/mgi.jpg',
+    'link' => 'https://www.facebook.com/PERCGroupPH'
   ]
 ];
+
 ?>
 
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>IskolarWorks - Scholarships</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css" rel="stylesheet">
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
-  <link href="https://api.fontshare.com/v2/css?f[]=satoshi@400,500,700&display=swap" rel="stylesheet"> 
+
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet" />
+  <link href="https://api.fontshare.com/v2/css?f[]=satoshi@400,500,700&display=swap" rel="stylesheet" />
 
   <style>
     body {
@@ -116,18 +143,21 @@ $scholarshipList = [
     <nav class="navbar navbar-expand-lg navbar-dark">
       <div class="container py-2">
         <a class="navbar-brand" href="#">ISKOLARWORKS</a>
+
         <?php if ($isAdmin): ?>
           <button type="button" class="btn btn-secondary text-white ms-2 rounded-circle">admin</button>
         <?php endif; ?>
+
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
           <span class="navbar-toggler-icon"></span>
         </button>
+
         <div class="collapse navbar-collapse" id="navbarNav">
           <ul class="navbar-nav ms-auto align-items-center">
-            <?php foreach ($navItems as $item): ?>
+            <?php foreach ($navItems as $nav): ?>
               <li class="nav-item">
-                <a class="nav-link px-3 <?= isset($item['active']) && $item['active'] ? 'active' : '' ?>" href="<?= $item['href'] ?>">
-                  <?= $item['label'] ?>
+                <a class="nav-link px-3 <?= isset($nav['active']) && $nav['active'] ? 'active' : '' ?>" href="<?= $nav['href'] ?>">
+                  <?= $nav['label'] ?>
                 </a>
               </li>
             <?php endforeach; ?>
@@ -144,20 +174,21 @@ $scholarshipList = [
 
   <div class="container py-5" id="scholarship">
     <h2 class="fw-bold text-center mb-5" style="font-size: 2.8rem;">SCHOLARSHIPS</h2>
-    <div class="row row-cols-1 row-cols-md-3 g-4">
-      <?php foreach ($scholarshipList as $item): ?>
+
+    <div class="row row-cols-1 row-cols-md-2 g-4">
+      <?php foreach ($scholarshipList as $scholarship): ?>
         <div class="col">
           <div class="card h-100 border-0 shadow-sm">
-            <div class="row g-0">
+            <div class="row g-0 h-100">
               <div class="col-4">
-                <img src="<?= $item['imageSrc'] ?>" alt="Scholarship Image" class="scholarship-img">
+                <img src="<?= $scholarship['imagePath'] ?>" alt="Scholarship Image" class="scholarship-img">
               </div>
               <div class="col-8">
                 <div class="card-body">
-                  <h6 class="fw-bold"><?= $item['scholarshipTitle'] ?></h6>
-                  <p class="mb-1"><strong>Deadline:</strong> <?= $item['deadline'] ?></p>
-                  <p class="mb-3"><strong>Benefit:</strong> <?= $item['benefit'] ?></p>
-                  <a href="#" class="btn btn-sm text-white px-3" style="background-color: #851d1d;">VIEW DETAILS</a>
+                  <h6 class="fw-bold"><?= $scholarship['scholarshipTitle'] ?></h6>
+                  <p class="mb-1"><strong>Deadline:</strong> <?= $scholarship['deadline'] ?></p>
+                  <p class="mb-3"><strong>Benefit:</strong> <?= $scholarship['benefit'] ?></p>
+                  <a href="<?= $scholarship['link'] ?>" target="_blank" class="btn btn-sm text-white px-3" style="background-color: #851d1d;">APPLY NOW</a>
                 </div>
               </div>
             </div>
