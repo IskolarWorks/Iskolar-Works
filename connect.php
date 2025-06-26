@@ -1,18 +1,12 @@
 <?php
-$dbhost = "localhost";
-$dbuser = "root";
-$dbpass = "";
-$db = "iskolarworks"; 
+$host = 'localhost';
+$user = 'root';
+$password = '';
+$database = 'iskolarworks';
 
-$conn = new mysqli($dbhost, $dbuser, $dbpass, $db) or die("Connect failed: %s\n" . $conn->error);
-
-if (!$conn) {
-  die("Connection Failed. " . mysqli_connect_error());
-  echo "Can't connect to database";
-}
-
-function executeQuery($query) {
-  $conn = $GLOBALS['conn'];
-  return mysqli_query($conn, $query);
+$conn = new mysqli($host, $user, $password, $database);
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
 }
 ?>
+
