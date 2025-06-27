@@ -138,22 +138,6 @@
       </div>
     </div>
 
-    <div class="row mb-5">
-      <div class="col-md-3 mb-3">
-        <div class="card bg-primary text-white h-100">
-          <div class="card-body">
-            <div class="d-flex justify-content-between align-items-center">
-              <div>
-                <h5 class="card-title">Admins</h5>
-                <h2 class="mb-0">5</h2>
-              </div>
-              <i class="fa-solid fa-user-graduate fa-2x opacity-75"></i>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
     <!-- LATEST NEWS -->
     <section class="container" style="font-family: 'Satoshi', sans-serif;">
       <div class="d-flex flex-column flex-md-row justify-content-md-between align-items-md-center mb-5">
