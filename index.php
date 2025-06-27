@@ -54,7 +54,7 @@
         <p class="mt-2 fs-5">
           Find scholarships and latest news in Sto. Tomas, Batangas. We connect students with opportunities to support their education and career.
         </p>
-        <a href="#" class="btn text-white mt-3" style="background-color: #832020;">EXPLORE</a>
+        <a href="about.php" class="btn text-white mt-3" style="background-color: #832020;">EXPLORE</a>
       </div>
     </div>
   </div>
@@ -118,7 +118,7 @@
   <section class="container py-5" style="font-family: 'Satoshi', sans-serif;">
     <div class="d-flex flex-column flex-md-row justify-content-md-between align-items-md-center mb-5">
       <h1 class="fw-bold display-6 text-center text-md-start mb-3 mb-md-0">FEATURED SCHOLARSHIPS</h1>
-      <a href="news.php" class="btn btn-sm rounded-5 text-white py-2 d-flex align-items-center justify-content-center gap-2" style="background-color: #832020;">See More
+      <a href="scholarships.php" class="btn btn-sm rounded-5 text-white py-2 d-flex align-items-center justify-content-center gap-2" style="background-color: #832020;">See More
         <i class="bi bi-arrow-right"></i>
       </a>
     </div>
