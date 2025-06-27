@@ -11,7 +11,7 @@
           <li class="nav-item"><a class="nav-link text-white" href="news.php">NEWS</a></li>
           <li class="nav-item"><a class="nav-link text-white" href="scholarships.php">SCHOLARSHIPS</a></li>
           <li class="nav-item"><a class="nav-link text-white" href="FAQs.php">FAQs</a></li>
-          <li class="nav-item"><a class="nav-link text-white" href="admin/index.php"><i class="bi bi-person-circle"></i></a></li>
+          <li class="nav-item"><a class="nav-link text-white" href="admin/login.php"><i class="bi bi-person-circle"></i></a></li>
         </ul>
       </div>
     </div>
