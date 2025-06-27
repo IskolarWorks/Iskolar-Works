@@ -1,3 +1,10 @@
+<?php 
+include("connect.php"); 
+$query_news = "SELECT * FROM home WHERE section_type = 'news' ORDER BY id DESC LIMIT 3";
+$result_news = executeQuery($query_news);
+$query_scholarships = "SELECT * FROM home WHERE section_type = 'scholarship' ORDER BY id DESC LIMIT 3";
+$result_scholarships = executeQuery($query_scholarships);
+?>
 <!doctype html>
 <html lang="en">
 
@@ -31,8 +38,8 @@
       border: 3px;
     }
     .card-glass .card-img-top {
-        border-top-left-radius: 1rem;
-        border-top-right-radius: 1rem;
+        border-top-left-radius: 1.5rem; 
+        border-top-right-radius: 1.5rem; 
     }
     .card-glass {
       transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -46,6 +53,7 @@
 </head>
 <body>
   <?php include("shared/nav.php") ?>
+
   <div class="position-relative" style="font-family: 'Satoshi', sans-serif;">
     <img src="img/coverkim.png" alt="COVER" class="img-fluid w-100" style="height: 100vh; object-fit: cover;">
     <div class="position-absolute top-50 start-50 translate-middle text-center px-3 w-100">
@@ -72,6 +80,7 @@
         </p>
     </div>
   </div>
+
   <section class="container" style="font-family: 'Satoshi', sans-serif;">
     <div class="d-flex flex-column flex-md-row justify-content-md-between align-items-md-center mb-5">
       <h1 class="fw-bold display-6 text-center text-md-start mb-3 mb-md-0">LATEST NEWS</h1>
@@ -80,41 +89,28 @@
       </a>
     </div>
     <div class="row g-4 justify-content-center">
+      <?php
+      if ($result_news && mysqli_num_rows($result_news) > 0) {
+        while ($row = mysqli_fetch_assoc($result_news)) {
+      ?>
       <div class="col-md-6 col-lg-4">
         <div class="card h-100 card-glass">
-          <img src="img/scholarship1.jpg" class="card-img-top w-100 object-fit-cover" style="height: 300px;" alt="News">
+          <img src="<?php echo htmlspecialchars($row['image_path']); ?>" class="card-img-top w-100 object-fit-cover" style="height: 300px;" alt="News">
           <div class="card-body text-white">
-            <h5 class="card-title fw-bold">Scholarship Grant Distribution: A Success!</h5>
-            <p class="card-text">
-              The Sangguniang Kabataan of Sta. Anastacia successfully distributed the last scholarship grants to our dedicated student beneficiaries today. We extend our heartfelt gratitude to everyone who made this possible.
-            </p>
+            <h5 class="card-title fw-bold"><?php echo htmlspecialchars($row['title']); ?></h5>
+            <p class="card-text"><?php echo htmlspecialchars($row['content']); ?></p>
           </div>
         </div>
       </div>
-      <div class="col-md-6 col-lg-4">
-        <div class="card h-100 card-glass">
-          <img src="img/scholarship2.jpg" class="card-img-top w-100 object-fit-cover" style="height: 300px;" alt="News">
-          <div class="card-body text-white">
-            <h5 class="card-title fw-bold">Scholarship Grant Release!</h5>
-            <p class="card-text">
-              Matagumpay na naisagawa ang Scholarship Grant Release sa City Evacuation Center. Mahigit 3,000 na kasalukuyang kolehiyong iskolar ang tumanggap ng kanilang scholarship grant na nagkakahalaga ng P5,000 bawat isa.
-            </p>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-6 col-lg-4">
-        <div class="card h-100 card-glass">
-          <img src="img/scholarship3.jpg" class="card-img-top w-100 object-fit-cover" style="height: 300px;" alt="News">
-          <div class="card-body text-white">
-            <h5 class="card-title fw-bold">Scholarship Program under GAD</h5>
-            <p class="card-text">
-              Maraming salamat po sa lahat ng taong nasa likod ng programang ito. Layunin lang po ng programang ito na makatulong sa mga magulang na PWD at SOLO PARENT na may anak ng SR Highschool at College.
-            </p>
-          </div>
-        </div>
-      </div>
+      <?php
+        }
+      } else {
+        echo '<div class="col-12"><p class="text-center">No news items found.</p></div>';
+      }
+      ?>
     </div>
   </section>
+
   <section class="container py-5" style="font-family: 'Satoshi', sans-serif;">
     <div class="d-flex flex-column flex-md-row justify-content-md-between align-items-md-center mb-5">
       <h1 class="fw-bold display-6 text-center text-md-start mb-3 mb-md-0">FEATURED SCHOLARSHIPS</h1>
@@ -123,49 +119,34 @@
       </a>
     </div>
     <div class="row g-4 justify-content-center">
+      <?php
+      if ($result_scholarships && mysqli_num_rows($result_scholarships) > 0) {
+        while ($row = mysqli_fetch_assoc($result_scholarships)) {
+      ?>
       <div class="col-md-6 col-lg-4">
         <div class="card h-100 card-glass">
-          <img src="img/news1.jpg" class="card-img-top w-100 object-fit-cover" style="height: 300px;" alt="News">
+          <img src="<?php echo htmlspecialchars($row['image_path']); ?>" class="card-img-top w-100 object-fit-cover" style="height: 300px;" alt="Scholarship">
           <div class="card-body text-white">
-            <p class="card-text">
-              Kita-kits iSKolar! Ito na ang pinakaabangang LAST RELEASE ng ating Scholarship Incentives sa May 18, Sunday (9 am) sa Barangay Hall 3 (Near Lafayette). Mangyaring sumali sa ating Facebook Group para sa anumang updates.
-            </p>
+            <?php 
+            if (!empty($row['title'])) {
+                echo '<h5 class="card-title fw-bold">' . htmlspecialchars($row['title']) . '</h5>';
+            }
+            ?>
+            <p class="card-text"><?php echo htmlspecialchars($row['content']); ?></p>
           </div>
         </div>
       </div>
-      <div class="col-md-6 col-lg-4">
-        <div class="card h-100 card-glass">
-          <img src="img/news2.jpg" class="card-img-top w-100 object-fit-cover" style="height: 300px;" alt="News">
-          <div class="card-body text-white">
-            <p class="card-text">
-              Scholarship Application na handog ng pamahalaang lungsod sa pangunguna nina Mayor Atty Arth Jhun Aguilar Marasigan, Vice Mayor Catherine Jaurigue-Perez, at mga miyembro ng Sangguniang Panlungsod.
-            </p>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-6 col-lg-4">
-        <div class="card h-100 card-glass">
-          <img src="img/news3.jpg" class="card-img-top w-100 object-fit-cover" style="height: 300px;" alt="News">
-          <div class="card-body text-white">
-            <p class="card-text">
-              Brgy San Bartolome Sto Tomas City Batangas! Scholarship Program 2.0 under Gender and Development (GAD) headed by our Punong Barangay Hon. Fermin E. Solis together of Sangguniang Barangay Members.
-            </p>
-          </div>
-        </div>
-      </div>
+      <?php
+        }
+      } else {
+        echo '<div class="col-12"><p class="text-center">No featured scholarships found.</p></div>';
+      }
+      ?>
     </div>
   </section>
-  <footer class="text-white text-center py-4 mt-5" style="background-color: #832020; font-family: 'Satoshi', sans-serif;">
-    <div class="container">
-      <p class="mb-3">© 2025 IskolarWorks. All rights reserved.</p>
-      <div class="d-flex justify-content-center gap-4">
-        <a href="#" class="text-white fs-4" target="_blank"><i class="bi bi-facebook"></i></a>
-        <a href="#" class="text-white fs-4" target="_blank"><i class="bi bi-instagram"></i></a>
-        <a href="#" class="text-white fs-4" target="_blank"><i class="bi bi-twitter-x"></i></a>
-        <a href="#" class="text-white fs-4" target="_blank"><i class="bi bi-github"></i></a>
-      </div>
-    </div>
-  </footer>
+  
+  <?php include("shared/footer.php") ?>
+
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 
