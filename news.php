@@ -15,7 +15,7 @@ $result = executeQuery($query);
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
 
   <style>
-   body {
+    body {
       background-color:rgb(136, 136, 136);
       background-image: 
         radial-gradient(at 80% 20%, hsla(0, 22.00%, 43.70%, 0.60) 0px, transparent 50%),
@@ -23,28 +23,47 @@ $result = executeQuery($query);
       font-family: 'Satoshi', sans-serif;
       color: #f6f4e9;
     }
-    .card.card-glass {
+    .card-glass {
       background-color: transparent;
       border-radius: 2rem;
       box-shadow: 8px 4px 30px rgba(255, 255, 255, 0.1);
       border: 0 solid rgba(255, 255, 255, 0.18);
       -webkit-backdrop-filter: blur(12px);
       backdrop-filter: blur(12px);
+      position: relative;
+      z-index: 1;
+      transition: transform 0.3s ease;
+      will-change: transform;
     }
-    .card-glass {
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    .card-glass::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border-radius: 2rem;
+      box-shadow: 0 10px 40px rgba(255, 255, 255, 0.2);
+      opacity: 0;
+      transition: opacity 0.3s ease;
+      z-index: -1;
     }
     .card-glass:hover {
       transform: scale(1.05);
-      box-shadow: 0 10px 40px rgba(255, 255, 255, 0.2);
-      z-index: 1;
+    }
+    .card-glass:hover::after {
+      opacity: 1;
+    }
+    .card-glass .card-img-top {
+      border-top-left-radius: 2rem;
+      border-top-right-radius: 2rem;
     }
   </style>
 </head>
 <body>
   <?php include("shared/nav.php") ?>
   <div class="container text-start py-5">
-    <h1 class="fw-bold display-5 text-center">LATEST NEWS</h1>
+    <h1 class="fw-bold display-5 text-center text-white">LATEST NEWS</h1>
   </div>
   <section class="container">
     <div class="row g-4">
@@ -57,7 +76,7 @@ $result = executeQuery($query);
               <img src="<?php echo htmlspecialchars($row['image']); ?>" class="card-img-top" style="height: 400px; object-fit: cover;" alt="News">
               <div class="card-body text-white">
                 <h5 class="card-title fw-bold"><?php echo htmlspecialchars($row['title']); ?></h5>
-                <?php echo $row['content']; ?>
+                <?php echo htmlspecialchars($row['content']); ?>
               </div>
             </div>
           </div>

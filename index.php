@@ -32,22 +32,34 @@ $result_scholarships = executeQuery($query_scholarships);
       border-radius: 2rem;
       border: 3px solid rgba(255, 255, 255, 0.18);
       box-shadow: 5px 4px 30px rgba(255, 255, 255, 0.1);
-    }
-    .card.card-glass {
       background-color: transparent;
-      border: 3px;
+      position: relative;
+      z-index: 1;
+      transition: transform 0.3s ease;
+      will-change: transform;
     }
-    .card-glass .card-img-top {
-        border-top-left-radius: 1.5rem; 
-        border-top-right-radius: 1.5rem; 
-    }
-    .card-glass {
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    .card-glass::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border-radius: 2rem;
+      box-shadow: 0 10px 40px rgba(255, 255, 255, 0.2);
+      opacity: 0;
+      transition: opacity 0.3s ease;
+      z-index: -1;
     }
     .card-glass:hover {
       transform: scale(1.05);
-      box-shadow: 0 10px 40px rgba(255, 255, 255, 0.2);
-      z-index: 1;
+    }
+    .card-glass:hover::after {
+      opacity: 1;
+    }
+    .card-glass .card-img-top {
+      border-top-left-radius: 1.5rem; 
+      border-top-right-radius: 1.5rem; 
     }
   </style>
 </head>
