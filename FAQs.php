@@ -25,22 +25,34 @@
       border-radius: 2rem;
       border: 5px solid rgba(0, 0, 0, 0.18);
       box-shadow: 5px 4px 30px rgba(255, 255, 255, 0.1);
-    }
-    .card.card-glass {
       background-color: transparent;
-      border: 5px;
+      position: relative;
+      z-index: 1;
+      transition: transform 0.3s ease;
+      will-change: transform;
+    }
+    .card-glass::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border-radius: 2rem;
+      box-shadow: 0 10px 40px rgba(255, 255, 255, 0.2);
+      opacity: 0;
+      transition: opacity 0.3s ease;
+      z-index: -1;
+    }
+    .card-glass:hover {
+      transform: scale(1.05);
+    }
+    .card-glass:hover::after {
+      opacity: 1;
     }
     .card-glass .card-img-top {
         border-top-left-radius: 1rem;
         border-top-right-radius: 1rem;
-    }
-    .card-glass {
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-    .card-glass:hover {
-      transform: scale(1.05);
-      box-shadow: 0 10px 40px rgba(255, 255, 255, 0.2);
-      z-index: 1;
     }
   </style>
 </head>
@@ -48,7 +60,7 @@
   <?php include("shared/nav.php") ?>
 
   <section class="container py-5">
-    <div class="text-center fw-bold display-5 mb-5">
+    <div class="text-center fw-bold display-5 mb-5 text-white">
       <strong>FREQUENTLY ASKED QUESTIONS</strong>
     </div>
     <div class="row g-4">
@@ -70,7 +82,6 @@
             <p class="card-text">Tuition fee assistance up to 10,000 per semester</p>
             <p class="card-text">Have allowance grant worth 3,000 thousand or more</p>
             <p class="card-text">Have youth organizations and youth-serving organization.</p>
-            </p>
           </div>
         </div>
       </div>
@@ -85,10 +96,10 @@
     </div>
   </section>
   <section class="container py-5">
-    <div class="text-center fw-bold display-5 mb-5">
+    <div class="text-center fw-bold display-5 mb-5 text-white">
       <strong>HOW IT WORKS</strong>
     </div>
-    <div class="row text-center gy-4">
+    <div class="row text-center gy-4 text-white">
       <div class="col-6 col-md-3">
         <i class="bi bi-clipboard-check fs-1" style="color:#832020;"></i>
         <div>PREPARE</div>
